@@ -1,0 +1,65 @@
+<web-app>
+  <display-name>DBTest_01</display-name>
+
+  <servlet>
+    <servlet-name>OracleSelectServlet</servlet-name>
+    <servlet-class>com.oracle.OracleSelectLongServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OracleSelectServlet</servlet-name>
+    <url-pattern>/oracleSelectLong</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>OracleC3p0Servlet</servlet-name>
+    <servlet-class>com.oracle.OracleC3p0Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OracleC3p0Servlet</servlet-name>
+    <url-pattern>/oracleC3p0</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>OracleDbcpServlet</servlet-name>
+    <servlet-class>com.oracle.OracleDbcpServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OracleDbcpServlet</servlet-name>
+    <url-pattern>/oracleDbcp</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>OracleProxoolServlet</servlet-name>
+    <servlet-class>com.oracle.OracleProxoolServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OracleProxoolServlet</servlet-name>
+    <url-pattern>/oracleProxool</url-pattern>
+  </servlet-mapping>
+
+
+  <servlet>
+    <servlet-name>Db2Servlet</servlet-name>
+    <servlet-class>com.db2.Db2Servlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>Db2Servlet</servlet-name>
+    <url-pattern>/db2</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>PostgreSQLServlet</servlet-name>
+    <servlet-class>com.postgreSql.PgSqlServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>PostgreSQLServlet</servlet-name>
+    <url-pattern>/postgresql</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+    <servlet-name>MysqlServlet</servlet-name>
+    <servlet-class>com.mysql.MysqlServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MysqlServlet</servlet-name>
+    <url-pattern>/mysql</url-pattern>
+  </servlet-mapping>
+
+</web-app>

@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+
+<connection-pools>
+	<proxool>
+		<alias>sqlserver</alias>
+		<driver-url>jdbc:sqlserver://192.168.2.200:1433;databaseName=Test</driver-url>
+		<driver-class>com.microsoft.sqlserver.jdbc.SQLServerDriver</driver-class>
+		<driver-properties>
+			<property name="user" value="sa" />
+			<property name="password" value="123456" />
+		</driver-properties>
+		
+		<minimum-connection-count>2</minimum-connection-count>
+		<maximum-connection-count>20</maximum-connection-count>
+		<maximum-connection-lifetime>18000000</maximum-connection-lifetime> <!-- 5 hours -->
+		<!-- <house-keeping-test-sql>select sysdate from dual</house-keeping-test-sql> -->
+		<statistics>15m,45m,1d</statistics>
+		<statistics-log-level>WARN</statistics-log-level>
+
+		<!-- <fatal-sql-exception>Connection is closed,SQLSTATE=08003,Error opening socket. SQLSTATE=08S01,SQLSTATE=08S01</fatal-sql-exception> -->
+		<!-- <fatal-sql-exception-wrapper-class>org.logicalcobwebs.proxool.FatalRuntimeException</fatal-sql-exception-wrapper-class> -->
+		<!-- <verbose>false</verbose> -->
+		
+		<!-- uncomment the following line if change to user of dev@MASTER -->
+		<!-- <connection-init-sqls>ALTER SESSION SET CURRENT_SCHEMA = netben</connection-init-sqls> -->
+	</proxool>
+</connection-pools>
