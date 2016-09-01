@@ -48,7 +48,9 @@ public class DataConf {
     public static String db2_Proxool = "proxool_db2.xml";
     public static String derby_Proxool = "proxool_derby.xml";
 
-    public static String optkey;
+    private static String optkey;
+    private static String DbType;
+
     private static String dateString;
     public static HashSet dbtype = new HashSet();
 
@@ -62,22 +64,19 @@ public class DataConf {
     }
 
     public static HashMap getSqlMap() {
-
         LinkedHashMap<String, String> sqlMap = new LinkedHashMap<String, String>();
-        //	sqlMap.put("insert", "insert into test_user (id,name,birthday) values (1, '"+optkey+"_insert',"+dateString+"),(2, '"+optkey+"_insert',"+dateString+")");
+
         sqlMap.put("insert", "insert into test_user (id,name,birthday) values (1, '" + optkey + "_insert'," + dateString + ")");
-        // sqlMap.put("insert0", "insert into test_user (id,name,birthday) values (2, '" + optkey + "_insert'," + dateString + ")");
         sqlMap.put("update", "update test_user set name='" + optkey + "_update' where name = '" + optkey + "_insert'");
-        sqlMap.put("call", "{call proc_update(?)}");
         sqlMap.put("call", "{call proc_update('"+optkey+"')}");
-
-
         sqlMap.put("select", "select id,name,birthday from test_user where name like '%" + optkey + "%'");
         sqlMap.put("delete", "delete from test_user where name like '%" + optkey + "%' and id=1");
-        sqlMap.put("truncate", "truncate table test_user");
+        if (DbType != "db2"){
+            sqlMap.put("truncate", "truncate table test_user");
+        }
         sqlMap.put("drop", "drop table test_tableA");
-        sqlMap.put("create", "create table test_tableA (id INTEGER not NULL,  first VARCHAR(255), last VARCHAR(255), age INTEGER, PRIMARY KEY ( id ))");
-        sqlMap.put("alter", "alter table test_tableA DROP COLUMN age");
+        sqlMap.put("create", "create table test_tableA (id integer not null,nowtime varchar(255), longcontent varchar(255) , age integer, primary key ( id ))");
+        sqlMap.put("alter", "alter table test_tableA drop column age");
         return sqlMap;
             /*
              *
@@ -148,6 +147,7 @@ DELIMITER ;
             System.out.println("DataSourec未成功初始化。。。");
         }
         // optkey = dataType + "_" + sourceType;
+        DbType=dataType;
         optkey = sourceType;
         return dataSource;
     }

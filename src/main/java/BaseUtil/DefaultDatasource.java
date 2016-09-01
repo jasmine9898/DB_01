@@ -101,7 +101,6 @@ public class DefaultDatasource implements DataSource {
 		} catch(ClassNotFoundException ex) {
 			Log.error("class not found: " + this.driverClass);
 		}
-
 		return connection;
 	}
 

@@ -29,7 +29,7 @@ public class PgSqlDefaultPsServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html;charset=UTF-8");
         StringBuffer stringBuffer=new StringBuffer();
-        stringBuffer.append("<html><body><h2>postgresql jdbc preparedStatement</h2>");
+        stringBuffer.append("<html><head><title></title></head><body><h2>postgresql jdbc preparedStatement</h2>");
         String queryResult="<a style=\"color: red\">error</a>";
 
         try {

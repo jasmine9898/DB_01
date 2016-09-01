@@ -15,15 +15,13 @@ public class OracleDbcpServlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		resp.setContentType("text/html;charset=UTF-8");
 		StringBuffer stringBuffer=new StringBuffer();
-		stringBuffer.append("<html><body><h2>UrlConnection Download File</h2>");
 		stringBuffer.delete(0, stringBuffer.length());
+		stringBuffer.append("<html><head><title></title></head><body><h2>Oracle Dbcp</h2>");
 		try {
-			stringBuffer.append(sqlExcute.excuteSql("oracle","dbcp","insert"));
-			stringBuffer.append(sqlExcute.excuteSql("oracle","dbcp","update"));
-			stringBuffer.append(sqlExcute.excuteSql("oracle","dbcp","call"));
-			stringBuffer.append(sqlExcute.excuteSql("oracle","dbcp","select"));
-
+			stringBuffer.append(sqlExcute.excuteSql("oracle","dbcp"));
+			//stringBuffer.append(sqlExcute.excuteSql("oracle","dbcp","select2","select * from test_tableA"));
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}

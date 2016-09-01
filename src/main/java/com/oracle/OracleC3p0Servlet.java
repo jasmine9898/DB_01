@@ -15,18 +15,19 @@ public class OracleC3p0Servlet extends HttpServlet {
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		resp.setContentType("text/html;charset=UTF-8");
 		StringBuffer stringBuffer=new StringBuffer();
-		stringBuffer.append("<html><body><h2>UrlConnection Download File</h2>");
 		stringBuffer.delete(0, stringBuffer.length());
+		stringBuffer.append("<html><head><title></title></head><body><h2>Oracle C3p0</h2>");
 		try {
-			stringBuffer.append(sqlExcute.excuteSql("oracle","c3p0","" ));
-			stringBuffer.append(sqlExcute.excuteSql("oracle","c3p0","select","select * from test_user"));
+			stringBuffer.append(sqlExcute.excuteSql("oracle","c3p0"));
+			//stringBuffer.append(sqlExcute.excuteSql("oracle","c3p0","select2","select * from test_tableA"));
+
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 		stringBuffer.append(" </body></html>");
 		resp.getWriter().write(stringBuffer.toString());
 	}
-
 }
 
